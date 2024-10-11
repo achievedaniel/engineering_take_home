@@ -7,3 +7,49 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+client_names = [
+  "Evergreen Developments",
+  "Summit Real Estate Group",
+  "Urban Vista Properties",
+  "Pioneer Building Solutions",
+  "Harborfront Construction Co."
+]
+
+client_names.each do |client_name|
+  clients = Client.create!(name: client_name)
+end
+
+
+# Define some custom fields for each client
+clients = Client.all
+custom_values = [ '2.5', 'Blue' ]
+clients.each do |client|
+  CustomField.create!(client: client, name: 'Number of bathrooms', custom_type: :number)
+  CustomField.create!(client: client, name: 'Living room color', custom_type: :text)
+  CustomField.create!(client: client, name: 'Type of walkway', options: [ "bad", "good", "worse" ], custom_type: :enum)
+
+  3.times do |i|
+    building = Building.create!(
+      client: client,
+      address: "#{i+1} Main St",
+      state: 'NY',
+      zip: '10001'
+    )
+    client.custom_fields.each do |field|
+      if field.custom_type == "number"
+        value = '2.5'
+        field_type = 'integer'
+      elsif field.custom_type == "text"
+        value = 'blue'
+        field_type = "text"
+      elsif field.custom_type == "enum"
+        value = field.options.join(",")
+        field_type = "array"
+      end
+      CustomFieldBuilding.create!(building: building, custom_field: field, value: value, value_type: field_type)
+    end
+  end
+end
+
+puts "Database successfully seeded!"

@@ -36,6 +36,8 @@ COPY --chown=ruby:ruby . .
 
 RUN chmod 0755 bin/*
 
+ENTRYPOINT ["bin/docker-entrypoint"]
+
 EXPOSE 3000
 
 CMD ["bash"]
