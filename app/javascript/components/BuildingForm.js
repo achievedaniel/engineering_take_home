@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const BuildingForm = ({ clientId, onSubmit }) => {
+const BuildingForm = ({ clientid, onSubmit }) => {
     const [custom, setCustom] = useState([]);
     const [custom_field, setCustomFields] = useState({
         custom_fields: {}
@@ -11,17 +11,17 @@ const BuildingForm = ({ clientId, onSubmit }) => {
     zip: '',
   });
 
+
   useEffect(() => {
-    // API call using fetch
-    fetch('/clients/1/custom_fields')  // replace with the actual API endpoint
+    fetch(`/clients/${clientid}/custom_fields`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();  // Parse the JSON from the response
+        return response.json();
       })
       .then((data) => {
-        setCustom(data.custom_fields || []);set // Set the fetched data to state
+        setCustom(data.custom_fields || []);set
       })
   }, []);
 
@@ -42,7 +42,7 @@ const BuildingForm = ({ clientId, onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`/clients/1/buildings`, {
+    fetch(`/clients/${clientid}/buildings`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ building, custom_field })
@@ -109,7 +109,9 @@ const BuildingForm = ({ clientId, onSubmit }) => {
                 )}
             </div>
         ))}
-      <button type="submit">Submit</button>
+        <div data-navigation-target="container">
+          <button type="submit">Submit</button>
+        </div>
     </form>
     </div>
   );

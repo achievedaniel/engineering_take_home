@@ -1,2 +1,7 @@
-json.extract! building, :id, :created_at, :updated_at
-json.url building_url(building, format: :json)
+json.extract! building, :id
+json.client(building.client.name)
+json.client_id(building.client.id)
+json.extract! building, :address, :state, :zip
+building.custom_field_building.each do |custom_field_building|
+  json.set! custom_field_building.custom_field.name, custom_field_building.value
+end

@@ -12,12 +12,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "welcome#index"
-
-  resources :clients do
-    resources :custom_fields
-    resources :buildings
-  end
-  resources :buildings do
-    resources :custom_field_buildings
-  end
+    # constraints ->(request) { request.format == :json } do
+    resources :clients do
+      resources :custom_fields
+      resources :buildings
+    end
+    resources :buildings do
+      resources :custom_field_buildings
+    end
+  # end
 end

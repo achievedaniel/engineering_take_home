@@ -13,3 +13,188 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+ }
+
+ .App {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); /* Responsive grid */
+    gap: 1rem; /* Space between grid items */
+    padding: 1rem;
+ } 
+
+ h1 {
+    font-family: 'Helvetica Neue', sans-serif; /* Modern font */
+    font-size: 3rem; /* Scalable font size */
+    font-weight: bold;
+    color: #333; /* Darker, elegant color */
+    text-align: center; /* Center the text */
+    margin: 1rem 0; /* Add space above and below */
+    line-height: 1.2; /* Adjust line height for readability */
+    letter-spacing: 0.05rem; /* Subtle letter spacing */
+    text-transform: uppercase; /* Make the text uppercase */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow for depth */
+    padding: 0.5rem; /* Add some padding */
+    border-bottom: 2px solid #4CAF50; /* Optional: underline with border */
+  }
+
+  .card {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 8px #999;
+    background-color: white;
+    height: fit-content;
+    padding: 0.5rem;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 16px;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+  
+  .card-content {
+    font-size: 1rem;
+    padding-bottom: .3rem;
+    color: #666;
+  }
+
+  .card-button {
+    background-color: #4CAF50; 
+    border: none;
+    margin-right: .2rem;
+    color: white;
+    padding: .5rem 1rem; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem; /* Font size: 1rem */
+    font-weight: bold;
+    border-radius: 0.5rem; /* Rounded corners with 0.5rem */
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1); /* Box-shadow with rem units */
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .card-button:hover {
+    background-color: #044107; /* Darker green on hover */
+    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    transform: translateY(-0.125rem); /* Slight lift on hover */
+  }
+  
+  .card-button:active {
+    transform: translateY(0);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }
+
+  .blue-btn {
+    background-color: #1e067c;
+  }
+  .blue-btn:hover {
+    background-color: #0b022e;
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form h2 {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 0.05rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #4CAF50;
+  }
+  
+  label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  input[type="text"], input[type="email"], input[type="number"], select {
+    width: 100%; /* Full width inputs */
+    padding: 0.75rem;
+    margin-bottom: 1rem; /* Space below each input */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Green glow */
+    outline: none; /* Remove default outline */
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical; /* Allow vertical resizing */
+  }
+  
+  textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #388e3c;
+    box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-0.125rem);
+  }
+  
+  button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  }

@@ -1,16 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<h1>Welcome To Perchwell!</h1>
 
-<% content_for :title, "Buildings" %>
-
-<h1>Buildings</h1>
-
-<div id="buildings">
-  <% @buildings.each do |building| %>
-    <%= render building %>
-    <p>
-      <%= link_to "Show this building", building %>
-    </p>
-  <% end %>
+<div data-controller="navigation">
+    <div data-navigation-target="container">
+     </div>
+  <!-- This div is where the React component will be rendered -->
 </div>
-
-<%= link_to "New building", new_building_path %>

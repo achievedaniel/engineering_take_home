@@ -90,6 +90,8 @@ GEM
     drb (2.2.1)
     error_highlight (0.6.0)
     erubi (1.13.0)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.6)
@@ -267,6 +269,7 @@ DEPENDENCIES
   brakeman
   debug
   error_highlight (>= 0.4.0)
+  fast_jsonapi
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
